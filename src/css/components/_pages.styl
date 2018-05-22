@@ -1,0 +1,117 @@
+$stroke = 2px
+
+#pointer
+	align()
+	top 0
+	left 0
+	position fixed
+	width 4rem
+	height 4rem
+	border-radius 100%
+	background $secondary
+	z-index 200
+	transform translate(50vw, 200vh)
+	// mix-blend-mode difference
+
+.ui
+	z-index 200
+	font-size 1.7vh
+
+#ui
+	position fixed
+	top 4.6vh
+	left 2.5rem
+
+#ui2
+	position fixed
+	top 4.6vh
+	right 2.5rem
+	text-align right
+
+#ui3
+	position fixed
+	bottom 4.6vh
+	left 2.5rem
+
+#ui4
+	position fixed
+	bottom 4.6vh
+	right 2.5rem
+	text-align right
+
+#background
+	position fixed
+	width 100%
+	height 100%
+	top 0
+	left 0
+	z-index 0
+	// background url('../../images/grid.svg') top center repeat
+	// background-size 8%
+	.x
+		width 100%
+		height 100%
+		position absolute
+		display flex
+		flex-direction column
+		justify-content space-around
+		span
+			width 100%
+			height $stroke
+			background $secondary
+	.y
+		width 100%
+		height 100%
+		position absolute
+		display flex
+		justify-content space-around
+		span
+			height 100%
+			width $stroke
+			background $secondary
+
+#feed
+	span(1)
+	position relative
+	z-index 1
+
+section.post
+	span(1)
+	height 100vh
+	display flex
+	justify-content center
+	align-items center
+	// background url('../../images/grid.svg') top center repeat
+	background-size 10%
+	.inner
+		position relative
+		z-index 100
+		width 60vw
+		height 100vh
+		// padding 5rem
+		// border $stroke solid
+		border-bottom none
+		display flex
+		justify-content center
+		align-items center
+		text-align center
+	.title, .subtitle
+		text-transform uppercase
+		font-size 10rem
+		line-height 0.9
+		-webkit-text-stroke $stroke
+		-webkit-text-stroke-color $secondary
+		-webkit-text-fill-color $primary
+		p
+			margin 0
+	.subtitle
+		position absolute
+		opacity 0
+		-webkit-text-fill-color $secondary
+	&:nth-child(even)
+		// filter invert(1)
+	&.active.secondary
+		.title
+			animation blink 1s linear infinite
+		.subtitle
+			animation blink 1s linear infinite reverse

@@ -1,0 +1,9 @@
+title: Home
+files: false
+pages:
+  template: artist
+deletable: false
+fields:
+  title:
+    label: Title
+    type:  text

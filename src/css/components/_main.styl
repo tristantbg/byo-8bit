@@ -1,0 +1,83 @@
+// webfont("","")
+
+body,html
+	width 100%
+	-webkit-text-size-adjust 100%
+	background $primary
+	color $secondary
+	&.invert
+		background $secondary
+		.ui
+			color $primary
+		#background span, #pointer
+			background $primary
+		section.active
+			color $primary
+		section.post.active .title
+			-webkit-text-stroke-color $primary
+		section.post.active .subtitle
+			-webkit-text-fill-color $primary
+			
+
+html
+	font-size 1vw
+
+body
+	font-family 'RTAliasTrialMedium-Bold', Helvetica Neue, Arial, sans-serif
+	font-size 1rem
+	text-rendering optimizeLegibility
+	font-smoothing()
+	overflow hidden
+
+p
+	margin-bottom 1em
+	line-height 1
+
+p:last-child
+	margin-bottom 0
+
+::selection
+	background $secondary
+	
+::-moz-selection
+	background $secondary
+
+*
+	hideselect()
+	box-sizing(border-box)
+
+video::-webkit-media-controls
+	display none
+
+video::-webkit-media-controls-play-button {}
+
+video::-webkit-media-controls-volume-slider {}
+
+video::-webkit-media-controls-mute-button {}
+
+video::-webkit-media-controls-timeline {}
+
+video::-webkit-media-controls-current-time-display {}
+
+a, a:hover, a:visited, a:focus
+	color inherit
+	text-decoration none
+	cursor pointer
+
+.lazy, .plyr
+	transition opacity 300ms ease
+	opacity 0
+
+.lazy.lazyloaded, .lazy.flickity-lazyloaded, .plyr.plyr--ready
+	opacity 1
+
+#main
+	span(1)
+
+#container
+	span(1)
+
+body.is-loading
+	#page-content
+		opacity 0
+		transition opacity 100ms ease
