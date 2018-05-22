@@ -45,7 +45,7 @@ const App = {
       })
     }, 1000)
 
-    // App.loop()
+    App.loop()
 
     // setInterval(() => {
     //   TweenMax.to(App.pointer, 2, {
@@ -184,8 +184,12 @@ const App = {
     let random = rand(2, 4)
     if (force) random = rand(3, 5)
     let elem = App.currentPost
-    while (i < random) {
+    while (elem && i < random) {
       elem = elem.nextElementSibling
+      if(!elem) {
+        window.scroll(0,0)
+        elem = document.querySelector('.post')
+      }
       i++
     }
     return elem
