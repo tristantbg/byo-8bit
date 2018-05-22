@@ -86,21 +86,34 @@ const App = {
     }, rand(20, 150));
   },
   random2: () => {
-    App.currentPost = App.posts[rand(0, App.posts.length - 1)]
+    // App.currentPost = App.posts[rand(0, App.posts.length - 1)]
+    App.currentPost = App.currentPost.nextElementSibling ? App.currentPost.nextElementSibling : App.posts[0]
     App.active(App.currentPost)
     document.documentElement.classList.add('invert')
-          setTimeout(function() {
-            document.documentElement.classList.remove('invert')
-          }, 100/2);
-          setTimeout(function() {
-            document.documentElement.classList.add('invert')
-          }, rand(110/2, 390/2));
-          setTimeout(function() {
-            document.documentElement.classList.remove('invert')
-            if(!App.currentPost.classList.contains('secondary')) App.loop()
-          }, 800/2);
-    if(App.currentPost.classList.contains('secondary')) setTimeout(App.loop, 1200)
-    
+    setTimeout(function() {
+      document.documentElement.classList.remove('invert')
+    }, 100 / 2);
+    setTimeout(function() {
+      document.documentElement.classList.add('invert')
+    }, rand(110 / 2, 390 / 2));
+    setTimeout(function() {
+      document.documentElement.classList.remove('invert')
+    }, rand(300, 500));
+    setTimeout(function() {
+      document.documentElement.classList.add('invert')
+    }, rand(200, 400));
+    setTimeout(function() {
+      document.documentElement.classList.remove('invert')
+    }, rand(300, 500));
+    setTimeout(function() {
+      document.documentElement.classList.add('invert')
+    }, rand(500, 600));
+    setTimeout(function() {
+      document.documentElement.classList.remove('invert')
+      if (!App.currentPost.classList.contains('secondary')) App.loop()
+    }, 800);
+    if (App.currentPost.classList.contains('secondary')) setTimeout(App.loop, 1200)
+
   },
   random: () => {
     App.isSwiping = true
@@ -213,7 +226,8 @@ const App = {
   getNext: (force = false) => {
     let i = 1
     let random = rand(2, 4)
-    if (force) random = rand(3, 5)
+    if (force)
+      random = rand(3, 5)
     let elem = App.currentPost
     while (i < random) {
       elem = elem.nextElementSibling
