@@ -45,7 +45,7 @@ const App = {
       })
     }, 1000)
 
-    App.loop()
+    // App.loop()
 
     // setInterval(() => {
     //   TweenMax.to(App.pointer, 2, {
@@ -110,12 +110,12 @@ const App = {
         scale: 1,
         ease: Expo.easeOut,
         force3D: true,
-      }).to(window, 1, {
+      }).to(window, 1.4, {
         scrollTo: App.currentPost,
         ease: Power4.easeOut
-      }, '-=0.8').to(App.pointer, 1, {
-        x: 48 / 100 * App.width,
-        y: 48 / 100 * App.height,
+      }, '-=0.5').to(App.pointer, 1, {
+        x: rand(30, 60) / 100 * App.width,
+        y: 47 / 100 * App.height,
         ease: Expo.easeOut,
         force3D: true,
       }, '-=0.5').to(App.pointer, 0.05, {

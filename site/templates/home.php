@@ -33,7 +33,7 @@
 
 <div id="feed">
 	<?php $idx = 1 ?>
-	<?php for ($i=0; $i < 100; $i++): ?>
+	<?php for ($i=0; $i < 10; $i++): ?>
 	
 	<?php foreach ($artists->shuffle() as $key => $artist): ?>
 	
