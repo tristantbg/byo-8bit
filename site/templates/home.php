@@ -4,7 +4,7 @@
 
 <div id="ui" class="ui"></div>
 <div id="ui2" class="ui"></div>
-<div id="ui3" class="ui"><p>30:05:2018</p><p>15:06:2018</p></div>
+<div id="ui3" class="ui"><p>Start: 30:05:2018</p><p>End: 15:06:2018</p></div>
 <div id="ui4" class="ui">Le Coeur, Paris</div>
 
 <div id="background">

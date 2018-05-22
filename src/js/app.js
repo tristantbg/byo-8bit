@@ -15,6 +15,7 @@ const App = {
     App.ui1 = document.getElementById("ui")
     App.ui2 = document.getElementById("ui2")
     App.currentPost = document.querySelector('.post')
+    App.posts = document.querySelectorAll(".post:not(.active)")
     App.sizeSet()
 
     // setTimeout(function() {
@@ -35,15 +36,28 @@ const App = {
     setInterval(() => {
       if (App.isSwiping) return
       TweenMax.to(App.pointer, 1, {
-        x: rand(30, 70) / 100 * App.width,
-        y: rand(80, 85) / 100 * App.height,
-        ease: Power2.easeInOut,
+        x: rand(0, 100) / 100 * App.width,
+        y: rand(0, 100) / 100 * App.height,
+        ease: Expo.easeInOut,
         force3D: true,
         onUpdate: function() {
           App.updateUI(Math.floor(App.pointer._gsTransform.x), Math.floor(App.pointer._gsTransform.y))
         }
       })
     }, 1000)
+
+    // setInterval(() => {
+    //   if (App.isSwiping) return
+    //   new TimelineMax().to(App.pointer, 1, {
+    //     scale: 2,
+    //     ease: Expo.easeInOut,
+    //     force3D: true,
+    //   }).to(App.pointer, 1, {
+    //     scale: 1,
+    //     ease: Expo.easeInOut,
+    //     force3D: true,
+    //   })
+    // }, 3000)
 
     App.loop()
 
@@ -68,8 +82,25 @@ const App = {
   },
   loop: () => {
     setTimeout(function() {
-      App.random();
-    }, rand(1000, 3000));
+      App.random2();
+    }, rand(20, 150));
+  },
+  random2: () => {
+    App.currentPost = App.posts[rand(0, App.posts.length - 1)]
+    App.active(App.currentPost)
+    document.documentElement.classList.add('invert')
+          setTimeout(function() {
+            document.documentElement.classList.remove('invert')
+          }, 100/2);
+          setTimeout(function() {
+            document.documentElement.classList.add('invert')
+          }, rand(110/2, 390/2));
+          setTimeout(function() {
+            document.documentElement.classList.remove('invert')
+            if(!App.currentPost.classList.contains('secondary')) App.loop()
+          }, 800/2);
+    if(App.currentPost.classList.contains('secondary')) setTimeout(App.loop, 1200)
+    
   },
   random: () => {
     App.isSwiping = true

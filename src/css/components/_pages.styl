@@ -5,17 +5,18 @@ $stroke = 2px
 	top 0
 	left 0
 	position fixed
-	width 4rem
-	height 4rem
+	width 10rem
+	height 10rem
 	border-radius 100%
 	background $secondary
 	z-index 200
 	transform translate(50vw, 200vh)
-	// mix-blend-mode difference
+	mix-blend-mode difference
 
 .ui
 	z-index 200
-	font-size 1.7vh
+	font-size 1.8vh
+	text-transform uppercase
 
 #ui
 	position fixed
@@ -83,6 +84,7 @@ section.post
 	align-items center
 	// background url('../../images/grid.svg') top center repeat
 	background-size 10%
+	display none
 	.inner
 		position relative
 		z-index 100
@@ -110,8 +112,10 @@ section.post
 		-webkit-text-fill-color $secondary
 	&:nth-child(even)
 		// filter invert(1)
+	&.active
+		display flex
 	&.active.secondary
 		.title
-			animation blink 1s linear infinite
+			animation blink 0.5s linear infinite
 		.subtitle
-			animation blink 1s linear infinite reverse
+			animation blink 0.5s linear infinite reverse
