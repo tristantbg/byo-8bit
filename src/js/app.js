@@ -76,7 +76,7 @@ const App = {
     TweenMax.killTweensOf(App.pointer)
     TweenMax.killTweensOf(window)
 
-    if (true || rand(0, 100) < 33) {
+    if (rand(0, 100) < 33) {
       App.currentPost = App.getNext()
       App.currentPostFake = App.currentPost
       App.currentPost = App.getNext(true)
